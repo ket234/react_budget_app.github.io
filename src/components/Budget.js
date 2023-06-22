@@ -1,11 +1,86 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
+
 const Budget = () => {
-    const { budget } = useContext(AppContext);
-    return (
-        <div className='alert alert-secondary'>
-            <span>Budget: £{budget}</span>
-        </div>
-    );
+  const { budget, dispatch,currency } = useContext(AppContext);
+  const [isEditing, setIsEditing] = useState(false);
+  const [inputBudget, setInputBudget] = useState(budget);
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+    
+  };
+ 
+  const handleSaveClick = () => {
+    if (inputBudget>20000){
+      alert('Cannot exceed value more than 20000')
+    }else{dispatch({
+      type: 'SET_BUDGET',
+      payload: inputBudget,
+    });
+    setIsEditing(false);}
+     
+  };
+
+  const handleInputChange = (event) => {
+    setInputBudget(event.target.value);
+  };
+
+  const handleInputKeyDown = (event) => {
+    if (event.keyCode === 38) {
+      // Up arrow
+      setInputBudget((prevBudget) => parseInt(prevBudget) + 10);
+    } else if (event.keyCode === 40) {
+      // Down arrow
+      setInputBudget((prevBudget) => parseInt(prevBudget) - 10);
+    }
+  };
+
+
+  return (
+    <div className="alert alert-secondary p-3 d-flex align-items-center justify-content-between">
+      {isEditing ? (
+        <>
+          <input
+            required
+            type="number"
+            step ="10"
+            className="form-control mr-3"
+            id="name"
+            value={inputBudget}
+            onChange={handleInputChange}
+            onKeyDown={handleInputKeyDown}
+          />
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleSaveClick}
+          >
+            Save
+          </button>
+        </>
+      ) : (
+        <>
+          <button
+            type="button"
+            className="btn btn-primary"
+            style={{ marginRight: '5px' }}
+            onClick={handleEditClick}
+          >
+            {'<'}
+          </button>
+          <span>Budget: {currency}{budget}</span>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleEditClick}
+          >
+            {'>'}
+          </button>
+        </>
+      )}
+    </div>
+  );
 };
+
 export default Budget;

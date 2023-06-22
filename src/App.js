@@ -10,9 +10,13 @@ import Budget from './components/Budget';
 import Remaining from './components/Remaining';              
 import ExpenseTotal from './components/ExpenseTotal';               
 import { AppProvider } from './context/AppContext';
-import ExpenseItem from './components/ExpenseItem';
+// import ExpenseItem from './components/ExpenseItem';
 import ExpenseList from './components/ExpenseList';
 import AllocationForm from './components/AllocationForm';
+import Currency from './components/Currency';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
     return (
@@ -20,7 +24,7 @@ const App = () => {
             <div className='container'>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
                     <div className='row mt-3'>
-                        { <div className='col-sm'>
+                        { <div className='col-sm col-md-3 '>
                 <Budget />
             </div>}        
 
@@ -32,21 +36,30 @@ const App = () => {
                         {                 //ExpenseTotal component
                     <div className='col-sm'>
                         <ExpenseTotal />
-                    </div>}        
+                    </div>}   
+
+                    {<div className="col-sm">
+                        <Currency/>
+                        </div>}        
                        
-                        {<div className="col-sm">
+                        {<div className="col-sm col-md-12">
                         <ExpenseList />
                         </div>}         
 
-                        {<div className="col-sm">
-                        <ExpenseItem />
-                        </div>}        
+                        {/* {
+                            <div className="col-sm">
+                                <ExpenseItem />
+                                </div>
+                        } */}
+                
 
-                        {<div className="col-sm">
+                        {<div className="col-sm col-md-12">
                         <AllocationForm />
-                        </div>}        
+                        </div>}  
+   
 
                 </div>
+                <ToastContainer />
             </div>
         </AppProvider>
     );

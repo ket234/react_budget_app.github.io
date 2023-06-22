@@ -2,8 +2,16 @@ import React, { createContext, useReducer } from 'react';
 
 // 5. The reducer - this is used to update the state, based on the action
 export const AppReducer = (state, action) => {
+    
     let budget = 0;
     switch (action.type) {
+        case 'SET_BUDGET':
+            action.type ="DONE";
+            state.budget = action.payload;
+            return {
+                ...state,
+              
+                   };
         case 'ADD_EXPENSE':
             let total_budget = 0;
             total_budget = state.expenses.reduce(
@@ -43,6 +51,7 @@ export const AppReducer = (state, action) => {
                     ...state,
                     expenses: [...red_expenses],
                 };
+
             case 'DELETE_EXPENSE':
             action.type = "DONE";
             state.expenses.map((currentExp)=> {
@@ -57,19 +66,14 @@ export const AppReducer = (state, action) => {
                 ...state,
                 budget
             };
-        case 'SET_BUDGET':
-            action.type = "DONE";
-            state.budget = action.payload;
-
-            return {
-                ...state,
-            };
-        case 'CHG_CURRENCY':
+       
+        case 'CHG_Currency':
             action.type = "DONE";
             state.currency = action.payload;
             return {
                 ...state
             }
+       
 
         default:
             return state;
@@ -78,13 +82,15 @@ export const AppReducer = (state, action) => {
 
 // 1. Sets the initial state when the app loads
 const initialState = {
-    budget: 2000,
+    budget:2000,
     expenses: [
-        { id: "Marketing", name: 'Marketing', cost: 50 },
-        { id: "Finance", name: 'Finance', cost: 300 },
-        { id: "Sales", name: 'Sales', cost: 70 },
-        { id: "Human Resource", name: 'Human Resource', cost: 40 },
-        { id: "IT", name: 'IT', cost: 500 },
+      
+        { id: "Marketing", name: 'Marketing', cost: 0 },
+        { id: "Finance", name: 'Finance', cost: 0 },
+        { id: "Sales", name: 'Sales', cost: 0 },
+        { id: "Human Resource", name: 'Human Resource', cost: 0 },
+        { id: "IT", name: 'IT', cost: 0 },
+        
     ],
     currency: '£'
 };
@@ -109,8 +115,8 @@ export const AppProvider = (props) => {
     return (
         <AppContext.Provider
             value={{
-                expenses: state.expenses,
                 budget: state.budget,
+                expenses: state.expenses,
                 remaining: remaining,
                 dispatch,
                 currency: state.currency
