@@ -21,7 +21,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
     return (
         <AppProvider>
-            <div className='container'>
+            <div className='container' style={{opacity: 0.8}}>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
                     <div className='row mt-3'>
                         { <div className='col-sm col-md-3 '>

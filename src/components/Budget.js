@@ -38,7 +38,10 @@ const Budget = () => {
 
 
   return (
-    <div className="alert alert-secondary p-3 d-flex align-items-center justify-content-between">
+    <div 
+    className="alert alert-secondary p-3 d-flex align-items-center justify-content-between"
+    style={{backgroundColor: 'rgb(239 235 231)', height: '56px', width:'100%',borderRadius:'8px'}}
+    >
       {isEditing ? (
         <>
           <input
@@ -63,7 +66,7 @@ const Budget = () => {
         <>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn"
             style={{ marginRight: '5px' }}
             onClick={handleEditClick}
           >
@@ -72,7 +75,7 @@ const Budget = () => {
           <span>Budget: {currency}{budget}</span>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn"
             onClick={handleEditClick}
           >
             {'>'}
