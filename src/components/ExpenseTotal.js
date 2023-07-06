@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const ExpenseTotal = () => {
-    const { expenses , currency , budget} = useContext(AppContext);
+    const { expenses , currency , budget , backgroundColor} = useContext(AppContext);
     const totalExpenses = expenses.reduce((total , item) => {
         return (total += item.cost);
     }, 0);
@@ -22,8 +22,8 @@ const ExpenseTotal = () => {
     
    
     return (
-        <div className={`alert ${alertType}`} >
-            <span>Spent so far: {currency}{totalExpenses}</span>
+        <div className={`alert ${alertType}`} style={{backgroundColor}}>
+            <span className='m-1'><h6>Spent so far : {currency}{totalExpenses}</h6></span>
           
         </div>
     );

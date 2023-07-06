@@ -72,7 +72,7 @@ const Budget = () => {
           >
             {'<'}
           </button>
-          <span>Budget: {currency}{budget}</span>
+          <span className='m-1'><h6>Budget : {currency}{budget}</h6></span>
           <button
             type="button"
             className="btn"

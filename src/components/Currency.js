@@ -20,16 +20,16 @@ const Currency = () => {
      const getCurrencyName = (val) => {
       switch(val){
         case '£' :
-          return 'Pound (£)';
+          return {name:'Pound (£)', color:'#553823'};
 
         case  '₹' :
-          return 'Ruppee (₹)';
+          return {name :'Ruppee (₹)' , color:'#553823'};
 
         case '€' :
-          return 'Euro (€)';
+          return {name:'Euro (€)' , color:'#553823'};
         
         case '$' :
-          return 'Dollar ($)'; 
+          return {name:'Dollar ($)', color: '#553823'}; 
 
           default:
             return '';
@@ -52,6 +52,8 @@ const Currency = () => {
         const handleDropdownToggle = (isOpen) =>{
             setIsDropdownOpen(isOpen)
         };
+
+        const currencyInfo = getCurrencyName(currency);
 
   return (
     <>
@@ -98,18 +100,21 @@ const Currency = () => {
               onSelect={handleItemClick} 
               onToggle={handleDropdownToggle} 
               className="custom-toggle"
-              style={{backgroundColor: 'green', height: '56px', width:'100%',borderRadius:'8px'}}>
+              style={{backgroundColor: '#efebe7', height: '56px', width:'100%',borderRadius:'8px'}}>
 
-              <Dropdown.Toggle variant="success" id="dropdown-basic" style={{backgroundColor: '#7fe0c2', height: '56px', width:'100%',borderRadius:'8px'}} >
-                  <label className="mb-0">Currency:</label>
-                    <span className="ml-2">{getCurrencyName(currency)}</span>
+              <Dropdown.Toggle variant="success" id="dropdown-basic" style={{backgroundColor: '#efebe7', height: '56px', width:'100%',borderRadius:'8px'}} >
+                  <label className="mb-0"><h6>Currency : </h6></label>
+                    <span className="ml-2">
+                    <label className='m-1' style={{ color: currencyInfo.color }}>{currencyInfo.name}</label>
+                      
+                      </span>
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu style={{backgroundColor: '#7fe0c2', width:'100%',borderRadius:'8px'}} >
-                      <Dropdown.Item eventKey="₹">₹ India</Dropdown.Item>
-                      <Dropdown.Item eventKey="€">€ Euro</Dropdown.Item>
-                      <Dropdown.Item eventKey="$">$ Dollar</Dropdown.Item>
-                      <Dropdown.Item eventKey="£">£ Pound</Dropdown.Item>
+                    <Dropdown.Menu style={{backgroundColor: '#efebe7', width:'100%',borderRadius:'8px'}} >
+                      <Dropdown.Item eventKey="₹"><h6>₹ India</h6></Dropdown.Item>
+                      <Dropdown.Item eventKey="€"><h6>€ Euro</h6></Dropdown.Item>
+                      <Dropdown.Item eventKey="$"><h6>$ Dollar</h6></Dropdown.Item>
+                      <Dropdown.Item eventKey="£"><h6>£ Pound</h6></Dropdown.Item>
                     </Dropdown.Menu>
             </Dropdown>
     </div>

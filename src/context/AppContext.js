@@ -1,8 +1,9 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer,useState } from 'react';
+
 
 // 5. The reducer - this is used to update the state, based on the action
 export const AppReducer = (state, action) => {
-    
+   
     let budget = 0;
     switch (action.type) {
         case 'SET_BUDGET':
@@ -101,6 +102,10 @@ export const AppContext = createContext();
 // 3. Provider component - wraps the components we want to give access to the state
 // Accepts the children, which are the nested(wrapped) components
 export const AppProvider = (props) => {
+
+     
+    const [alertType, setAlertType] = useState('alert-success');
+    const backgroundColor = alertType === 'alert-success' ? 'rgb(239, 235, 231)' : '';
     // 4. Sets up the app state. takes a reducer, and an initial state
     const [state, dispatch] = useReducer(AppReducer, initialState);
     let remaining = 0;
@@ -111,6 +116,7 @@ export const AppProvider = (props) => {
         }, 0);
         remaining = state.budget - totalExpenses;
     }
+    
 
     return (
         <AppContext.Provider
@@ -118,6 +124,7 @@ export const AppProvider = (props) => {
                 budget: state.budget,
                 expenses: state.expenses,
                 remaining: remaining,
+                backgroundColor,
                 dispatch,
                 currency: state.currency
             }}
