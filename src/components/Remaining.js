@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext'; 
+import '../custom-style.css';
 const Remaining = () => {
     const { expenses, budget ,currency,backgroundColor } = useContext(AppContext);
       
@@ -13,7 +14,7 @@ const Remaining = () => {
 
     return (
         <div className={`alert ${alertType}`} style={{backgroundColor}}>
-            <span className='m-1'><h6>Remaining : {currency}{budget - totalExpenses}</h6></span>
+            <span className='top-box'><h6>Remaining : {currency}{budget - totalExpenses}</h6></span>
         </div>
     );
 };

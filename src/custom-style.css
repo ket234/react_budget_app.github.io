@@ -44,3 +44,7 @@ h6{
   .table td {
     background-color:#e7dcd3 ;
   } 
+
+  .top-box{
+    height: 120px !important;
+  }
