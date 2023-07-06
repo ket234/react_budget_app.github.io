@@ -13,8 +13,8 @@ const Remaining = () => {
     
 
     return (
-        <div className={`alert ${alertType}`} style={{backgroundColor}}>
-            <span className='top-box'><h6>Remaining : {currency}{budget - totalExpenses}</h6></span>
+        <div className={`box-shadow alert ${alertType}`} style={{backgroundColor}}>
+            <span className=' top-box'><h6>Remaining : {currency}{budget - totalExpenses}</h6></span>
         </div>
     );
 };

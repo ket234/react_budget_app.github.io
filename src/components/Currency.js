@@ -99,7 +99,7 @@ const Currency = () => {
             <Dropdown 
               onSelect={handleItemClick} 
               onToggle={handleDropdownToggle} 
-              className="custom-toggle"
+              className="box-shadow custom-toggle"
               style={{backgroundColor: '#efebe7', height: '56px', width:'100%',borderRadius:'8px'}}>
 
               <Dropdown.Toggle variant="success" id="dropdown-basic" style={{backgroundColor: '#efebe7', height: '56px', width:'100%',borderRadius:'8px'}} >

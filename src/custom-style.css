@@ -48,3 +48,19 @@ h6{
   .top-box{
     height: 120px !important;
   }
+   .box-shadow{
+    box-shadow: 1px 2px #b76734a3;
+   }
+
+   .row .input-group .save-button{
+    background-color: #953d07;
+    border: 1px solid #823e0a;
+    border-radius: 5px !important;
+    color: aliceblue;
+    width: 5rem;
+    box-shadow: 1px 2px #773207;
+   }
+
+   .row .input-group .save-button:hover{
+    background-color: #b75111
+   }

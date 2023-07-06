@@ -22,7 +22,7 @@ const ExpenseTotal = () => {
     
    
     return (
-        <div className={`alert ${alertType}`} style={{backgroundColor}}>
+        <div className={`box-shadow alert ${alertType}`} style={{backgroundColor}}>
             <span className='top-box'><h6>Spent so far : {currency}{totalExpenses}</h6></span>
           
         </div>

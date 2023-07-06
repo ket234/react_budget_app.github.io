@@ -40,7 +40,7 @@ const Budget = () => {
   return (
     <div 
     className="alert alert-secondary p-3 d-flex align-items-center justify-content-between"
-    style={{backgroundColor: 'rgb(239 235 231)', height: '60px', width:'100%',borderRadius:'8px'}}
+    style={{backgroundColor: 'rgb(239 235 231)', height: '60px', width:'100%',borderRadius:'8px', boxShadow:'1px 2px #b76734a3'}}
     >
       {isEditing ? (
         <>
