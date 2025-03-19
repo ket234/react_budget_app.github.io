@@ -89,7 +89,7 @@ const initialState = {
         { id: "Marketing", name: 'Marketing', cost: 0 },
         { id: "Finance", name: 'Finance', cost: 0 },
         { id: "Sales", name: 'Sales', cost: 0 },
-        { id: "Human Resource", name: 'Human Resource', cost: 0 },
+        { id: "HR", name: 'HR', cost: 0 },
         { id: "IT", name: 'IT', cost: 0 },
         
     ],
