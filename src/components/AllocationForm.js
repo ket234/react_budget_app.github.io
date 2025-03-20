@@ -26,6 +26,7 @@ const AllocationForm = (props) => {
             name: name,
             cost: parseInt(cost),
         };
+         console.log("adding Expense:", action.payload);
         console.log("Dispatching Expense:", expense);
         if(action === "Reduce") {
             dispatch({
